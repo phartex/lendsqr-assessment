@@ -20,7 +20,10 @@ const User: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div className="user-container">
+      <p>Loading...</p>
+      <img src={`/assets/lendsqr-logo.png`} alt='logo'/>
+    </div>;
   }
 
   return (
