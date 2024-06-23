@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './UserTable.scss';
+import ThreeDotMenu from '../components/ThreeDotMenu';
+import { useNavigate } from 'react-router-dom';
 
 const UserTable: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUsers = localStorage.getItem('users');
@@ -10,6 +13,21 @@ const UserTable: React.FC = () => {
       setUsers(JSON.parse(storedUsers));
     }
   }, []);
+
+
+  const handleViewDetails = (userId: number) => {
+    console.log(userId)
+    navigate(`/users/${userId}`);
+  };
+
+  const handleBlacklistUser = (userId: number) => {
+    console.log('Blacklist user:', userId);
+  };
+
+  const handleActivateUser = (userId: number) => {
+    console.log('Activate user:', userId);
+  };
+
 
   return (
     <div className="user-table-container">
@@ -22,6 +40,7 @@ const UserTable: React.FC = () => {
             <th>PHONE NUMBER</th>
             <th>DATE JOINED</th>
             <th>STATUS</th>
+            <th>ACTIONS</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +55,13 @@ const UserTable: React.FC = () => {
                 <span className={`status ${user.status.toLowerCase()}`}>
                   {user.status}
                 </span>
+              </td>
+              <td>
+                <ThreeDotMenu
+                  onViewDetails={() => handleViewDetails(user.id)}
+                  onBlacklistUser={() => handleBlacklistUser(user.id)}
+                  onActivateUser={() => handleActivateUser(user.id)}
+                />
               </td>
             </tr>
           ))}

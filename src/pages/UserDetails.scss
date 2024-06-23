@@ -1,0 +1,93 @@
+.user-details-container {
+    padding-left: 50px;   
+}
+.menu-details{
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.heading-color {
+    color: #545F7D;
+}
+
+.tabs button {
+    border: none;
+    background-color: transparent;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    color:#545F7D ;
+}
+
+.tabs button.active {
+    border-bottom: 2px solid #39CDCC;
+    color: #39CDCC;
+}
+
+.tab-content {
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.section {
+    color: #545F7D;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #545F7D;
+    margin-bottom: 3em;
+}
+
+.section h3 {
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin: 5px 0;
+
+}
+
+.section p strong {
+    display: inline-block;
+    width: 150px;
+}
+
+.personal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.personal-info-grid p {
+    margin: 5px 0;
+}
+
+.personal-info-grid p strong {
+    display: inline-block;
+    width: 150px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading{
+    font-size: 25px;
+}
+.action-button-blacklist{
+    margin: 0 5px;
+    border: 2px solid red;
+    color: red;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+.action-button-activate{
+    margin: 0 5px;
+    border: 2px solid #39CDCC;
+    color: #39CDCC;
+    padding: 0.5em;
+    border-radius: 10px;
+}

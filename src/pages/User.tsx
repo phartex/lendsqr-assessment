@@ -3,37 +3,35 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './User.scss';
 import Loading from '../components/Loading';
+import UserTable from './UserTable';
 
 const User: React.FC = () => {
-  const [users, setUsers] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isDataFetched, setIsDataFetched] = useState(false);
 
   useEffect(() => {
-    axios.get('https://run.mocky.io/v3/7290fa80-31c2-4cd4-b191-fb947cb64ea3') // Replace with your mock API URL
-      .then(response => {
-        setUsers(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error(error);
-        setLoading(false);
-      });
-  }, []);
+    const fetchData = async () => {
+      try {
+        // https://run.mocky.io/v3/7290fa80-31c2-4cd4-b191-fb947cb64ea3
+        const response = await axios.get('https://run.mocky.io/v3/3a73bc72-6809-4772-8bed-cdef597074d2');
+        localStorage.setItem('users', JSON.stringify(response.data));
+        setIsDataFetched(true);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
 
-  if (loading) {
-    return <Loading/>;
-  }
+    if (!localStorage.getItem('users')) {
+      fetchData();
+    } else {
+      setIsDataFetched(true);
+    }
+  }, []);
 
   return (
     <div className="user-container">
-      <h1>User List</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <Link to={`/users/${user.id}`}>{user.name}</Link>
-          </li>
-        ))}
-      </ul>
+      {isDataFetched ? <h1>User</h1> : ''}
+      {isDataFetched ? <UserTable /> : <Loading/>
+      }
     </div>
   );
 };
