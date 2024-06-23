@@ -14,6 +14,7 @@ const User: React.FC = () => {
         // https://run.mocky.io/v3/7290fa80-31c2-4cd4-b191-fb947cb64ea3
         const response = await axios.get('https://run.mocky.io/v3/3a73bc72-6809-4772-8bed-cdef597074d2');
         localStorage.setItem('users', JSON.stringify(response.data));
+        console.log('---')
         setIsDataFetched(true);
       } catch (error) {
         console.error('Error fetching data:', error);
