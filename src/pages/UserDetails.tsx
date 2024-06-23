@@ -42,6 +42,7 @@ const UserDetails: React.FC = () => {
 
   return (
     <div className="user-details-container">
+
       <div className='flex'>
         <div><p className='heading-color heading'>User Details</p></div>
         <div className='flex'>
@@ -50,71 +51,96 @@ const UserDetails: React.FC = () => {
 
         </div>
       </div>
-      <div className="tabs">
-        <button onClick={() => setActiveTab('general-details')} className={activeTab === 'general-details' ? 'active' : ''}>General Details</button>
-        <button onClick={() => setActiveTab('documents')} className={activeTab === 'documents' ? 'active' : ''}>Documents</button>
-        <button onClick={() => setActiveTab('bank-details')} className={activeTab === 'bank-details' ? 'active' : ''}>Bank Details</button>
-        <button onClick={() => setActiveTab('loans')} className={activeTab === 'loans' ? 'active' : ''}>Loans</button>
-        <button onClick={() => setActiveTab('savings')} className={activeTab === 'savings' ? 'active' : ''}>Savings</button>
-        <button onClick={() => setActiveTab('app-system')} className={activeTab === 'app-system' ? 'active' : ''}>App and System</button>
-      </div>
-      <div className='menu-details'>
-      {activeTab === 'general-details' && (
-        <div className="tab-content">
-          <h2 className='heading-color'>General Details</h2>
-          <div className="section">
-            <h3 className='heading-color'>Personal Information</h3>
-            <div className="personal-info-grid">
-              <p><strong>Full Name:</strong> {user.name}</p>
-              <p><strong>Phone Number:</strong> {user.phone}</p>
-              <p><strong>Email Address:</strong> {user.email}</p>
-              <p><strong>BVN:</strong> {user.bvn}</p>
-              <p><strong>Gender:</strong> {user.gender}</p>
-              <p><strong>Marital Status:</strong> {user.maritalStatus}</p>
-              <p><strong>Children:</strong> {user.children}</p>
-              <p><strong>Type of Residence:</strong> {user.typeOfResidence}</p>
+      <div className='user-header'>
+        <div className="user-detail-header">
+          <div className="user-info">
+            <div className="avatar">
+              <img src="/assets/avatar.png" alt="User Avatar" />
             </div>
-
-          </div>
-          <div className="section">
-            <h3 className='heading-color'>Education and Employment</h3>
-            <div className="personal-info-grid">
-              <p><strong>Level of Education:</strong> {user.levelOfEducation}</p>
-              <p><strong>Employment Status:</strong> {user.employmentStatus}</p>
-              <p><strong>Sector of Employment:</strong> {user.sectorOfEmployment}</p>
-              <p><strong>Duration of Employment:</strong> {user.durationOfEmployment}</p>
-              <p><strong>Office Email:</strong> {user.officeEmail}</p>
-              <p><strong>Monthly Income:</strong> {user.monthlyIncome}</p>
-              <p><strong>Loan Repayment:</strong> {user.loanRepayment}</p>
+            <div className="info">
+              <h2>{user.name}</h2>
+              <p>LDHDHDH393939</p>
             </div>
-
           </div>
-          <div className="section">
-            <h3 className='heading-color'>Socials</h3>
-            <div className="personal-info-grid">
-              <p><strong>Twitter:</strong> {user.twitter}</p>
-              <p><strong>Facebook:</strong> {user.facebook}</p>
-              <p><strong>Instagram:</strong> {user.instagram}</p>
+          <div className="user-tier">
+            <p>User's Tier</p>
+            <div className="stars">
+              <p>stars</p>
             </div>
-
           </div>
-          <div className="section">
-            <h3 className='heading-color'>Guarantor</h3>
-            <p><strong>Full Name:</strong> {user.guarantor.fullName}</p>
-            <p><strong>Phone Number:</strong> {user.guarantor.phoneNumber}</p>
-            <p><strong>Email Address:</strong> {user.guarantor.email}</p>
-            <p><strong>Relationship:</strong> {user.guarantor.relationship}</p>
+          <div className="user-balance">
+            <h3>200,000</h3>
+            <p>999999999 Providus Bank</p>
           </div>
         </div>
-      )}
-      {activeTab === 'documents' && <div className="tab-content heading-color">Documents</div>}
-      {activeTab === 'bank-details' && <div className="tab-content heading-color">Bank Details</div>}
-      {activeTab === 'loans' && <div className="tab-content heading-color">Loans</div>}
-      {activeTab === 'savings' && <div className="tab-content heading-color">Savings</div>}
-      {activeTab === 'app-system' && <div className="tab-content heading-color">App and System</div>}
+        <div className="tabs">
+          <button onClick={() => setActiveTab('general-details')} className={activeTab === 'general-details' ? 'active' : ''}>General Details</button>
+          <button onClick={() => setActiveTab('documents')} className={activeTab === 'documents' ? 'active' : ''}>Documents</button>
+          <button onClick={() => setActiveTab('bank-details')} className={activeTab === 'bank-details' ? 'active' : ''}>Bank Details</button>
+          <button onClick={() => setActiveTab('loans')} className={activeTab === 'loans' ? 'active' : ''}>Loans</button>
+          <button onClick={() => setActiveTab('savings')} className={activeTab === 'savings' ? 'active' : ''}>Savings</button>
+          <button onClick={() => setActiveTab('app-system')} className={activeTab === 'app-system' ? 'active' : ''}>App and System</button>
+        </div>
+
       </div>
-    
-    </div>
+
+      <div className='menu-details'>
+        {activeTab === 'general-details' && (
+          <div className="tab-content">
+            <h2 className='heading-color'>General Details</h2>
+            <div className="section">
+              <h3 className='heading-color'>Personal Information</h3>
+              <div className="personal-info-grid">
+                <p><strong>Full Name:</strong> {user.name}</p>
+                <p><strong>Phone Number:</strong> {user.phone}</p>
+                <p><strong>Email Address:</strong> {user.email}</p>
+                <p><strong>BVN:</strong> {user.bvn}</p>
+                <p><strong>Gender:</strong> {user.gender}</p>
+                <p><strong>Marital Status:</strong> {user.maritalStatus}</p>
+                <p><strong>Children:</strong> {user.children}</p>
+                <p><strong>Type of Residence:</strong> {user.typeOfResidence}</p>
+              </div>
+
+            </div>
+            <div className="section">
+              <h3 className='heading-color'>Education and Employment</h3>
+              <div className="personal-info-grid">
+                <p><strong>Level of Education:</strong> {user.levelOfEducation}</p>
+                <p><strong>Employment Status:</strong> {user.employmentStatus}</p>
+                <p><strong>Sector of Employment:</strong> {user.sectorOfEmployment}</p>
+                <p><strong>Duration of Employment:</strong> {user.durationOfEmployment}</p>
+                <p><strong>Office Email:</strong> {user.officeEmail}</p>
+                <p><strong>Monthly Income:</strong> {user.monthlyIncome}</p>
+                <p><strong>Loan Repayment:</strong> {user.loanRepayment}</p>
+              </div>
+
+            </div>
+            <div className="section">
+              <h3 className='heading-color'>Socials</h3>
+              <div className="personal-info-grid">
+                <p><strong>Twitter:</strong> {user.twitter}</p>
+                <p><strong>Facebook:</strong> {user.facebook}</p>
+                <p><strong>Instagram:</strong> {user.instagram}</p>
+              </div>
+
+            </div>
+            <div className="section">
+              <h3 className='heading-color'>Guarantor</h3>
+              <p><strong>Full Name:</strong> {user.guarantor.fullName}</p>
+              <p><strong>Phone Number:</strong> {user.guarantor.phoneNumber}</p>
+              <p><strong>Email Address:</strong> {user.guarantor.email}</p>
+              <p><strong>Relationship:</strong> {user.guarantor.relationship}</p>
+            </div>
+          </div>
+        )}
+        {activeTab === 'documents' && <div className="tab-content heading-color">Documents</div>}
+        {activeTab === 'bank-details' && <div className="tab-content heading-color">Bank Details</div>}
+        {activeTab === 'loans' && <div className="tab-content heading-color">Loans</div>}
+        {activeTab === 'savings' && <div className="tab-content heading-color">Savings</div>}
+        {activeTab === 'app-system' && <div className="tab-content heading-color">App and System</div>}
+      </div>
+
+    </div >
   );
 };
 
