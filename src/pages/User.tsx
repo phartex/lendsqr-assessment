@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import './User.scss';
 import Loading from '../components/Loading';
 import UserTable from './UserTable';
