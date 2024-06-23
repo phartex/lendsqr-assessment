@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './User.scss';
+import Loading from '../components/Loading';
 
 const User: React.FC = () => {
   const [users, setUsers] = useState<any[]>([]);
@@ -20,10 +21,7 @@ const User: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="user-container">
-      <p>Loading...</p>
-      <img src={`/assets/lendsqr-logo.png`} alt='logo'/>
-    </div>;
+    return <Loading/>;
   }
 
   return (
