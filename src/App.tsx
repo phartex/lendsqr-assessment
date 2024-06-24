@@ -6,6 +6,7 @@ import UserDetails from './pages/UserDetails';
 import Dashboard from './pages/DashBoard';
 import SideMenu from './components/SideMenu';
 import Navbar from './pages/NavBar';
+import './App.css';
 
 const App: React.FC = () => {
   return (

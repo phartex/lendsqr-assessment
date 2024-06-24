@@ -4,15 +4,15 @@ import './NavBar.scss';
 import { FaSearch, FaBell } from 'react-icons/fa';
 
 const Navbar = () => {
-    const handleLogoClick = () => {
-        localStorage.clear();
-        window.location.href = '/';
-      };
-    
+  const handleLogoClick = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-      <Link to="/" className="logo-link" onClick={handleLogoClick}>
+        <Link to="/" className="logo-link" onClick={handleLogoClick}>
           <img src="/assets/lendsqr-logo.png" alt="Logo" className="logo" />
         </Link>
       </div>

@@ -62,7 +62,7 @@
       }
       .status {
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: 10px;
         color: #fff;
 
         &.inactive {
@@ -74,11 +74,13 @@
         }
 
         &.blacklisted {
-            background-color: #dc3545;
+            background-color: #f4d3d6;
+            color: #dc3545;
         }
 
         &.active {
-            background-color: #28a745;
+            background-color: #d2fcdb;
+            color: #28a745;
         }
     }
   

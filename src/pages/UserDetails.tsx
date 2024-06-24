@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './UserDetails.scss';
 import { IUser } from '../models/IUser';
+import { FaArrowLeft } from 'react-icons/fa';
 
 
 
 const UserDetails: React.FC = () => {
+  const handleLogoClick = () => {
+    localStorage.clear();
+    window.location.href = '/';
+  };
   const { id } = useParams<{ id: string }>();
   const [user, setUser] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<string>('general-details');
@@ -42,8 +47,9 @@ const UserDetails: React.FC = () => {
 
   return (
     <div className="user-details-container">
+      <p className='heading-color'  onClick={handleLogoClick} style={{alignItems:'centre',cursor:'pointer'}}><span style={{paddingRight:'1em'}}><FaArrowLeft/></span> Back</p>
 
-      <div className='flex'>
+      <div className='flex '>
         <div><p className='heading-color heading'>User Details</p></div>
         <div className='flex'>
           <p className='action-button-blacklist'>BLACKLIST USER</p>
