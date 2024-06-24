@@ -2,17 +2,25 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './SideMenu.scss';
 
-const SideMenu: React.FC = () => {
+interface SideMenuProps {
+  isOpen: boolean;
+}
+
+const SideMenu: React.FC<SideMenuProps> = ({ isOpen }) => {
   return (
-    <div className="side-menu">
+    <div className={`side-menu ${isOpen ? 'open' : ''}`}>
       <ul>
         <li>
-          <NavLink to="/dashboard"  className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
+          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Dashboard
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/users"  className={({ isActive }) => isActive ? 'active' : ''}>Users</NavLink>
+          <NavLink to="/users" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Users
+          </NavLink>
         </li>
-        {/* <li>
+         {/* <li>
           <NavLink to="/"  className={({ isActive }) => isActive ? 'active' : ''}>Guarantors</NavLink>
         </li>
         <li>
@@ -38,4 +46,9 @@ const SideMenu: React.FC = () => {
   );
 };
 
-export default SideMenu
+export default SideMenu;
+
+
+
+
+

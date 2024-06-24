@@ -9,8 +9,17 @@
   top: 0;
   min-width: 95%;
   z-index: 1000;
+  .menu-toggle-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 
   .navbar-left {
+    display: flex;
+    align-items: center;
     .logo {
       width: 100px;
     }
@@ -75,6 +84,14 @@
 }
 
 @media (max-width: 768px) {
+  .navbar{
+    padding: 20px 20px 20px 20px;
+  }
+  .menu-toggle-button {
+    display: block !important;
+    padding: 0 1em;
+  }
+
   .navbar-center {
     .search-container {
       .search-input {

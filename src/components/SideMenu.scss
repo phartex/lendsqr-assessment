@@ -2,12 +2,19 @@
   width: 200px;
   padding: 20px;
   position: fixed;
+  background-color: #fff; 
   height: 100%;
   overflow-y: auto;
   box-shadow: -5px 0 20px -5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   padding-top: 3.5em;
-
+  transition: left 0.3s;
+  left: -200px; 
+  border-right: 1px solid #e5e5e5;
+  z-index: 1000;
+  &.open {
+    left: 0; 
+  }
   ul {
     list-style-type: none;
     padding: 0;
@@ -35,6 +42,7 @@
   }
 
   @media (max-width: 768px) {
+    
     transform: translateX(-100%);
     &.open {
       transform: translateX(0);
@@ -46,6 +54,7 @@
   display: none;
 
   @media (max-width: 768px) {
+    left: 0;
     display: block;
     position: absolute;
     top: 20px;

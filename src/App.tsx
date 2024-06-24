@@ -1,33 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import User from './pages/User';
 import UserDetails from './pages/UserDetails';
-import Dashboard from './pages/DashBoard';
 import SideMenu from './components/SideMenu';
-import Navbar from './pages/NavBar';
+import Login from './pages/Login';
 import './App.css';
+import Navbar from './pages/NavBar';
+import DashBoard from './pages/DashBoard';
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
     <Router>
-    <div className="app-container">
-    <Navbar />
-      <SideMenu />
-      <div className="main-content">
-      
-        <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/users" element={<User />} />
-          <Route path="/users/:id" element={<UserDetails />} />
-        </Routes>
+      <div className="app-container">
+        {isAuthenticated ? (
+          <>
+            <Navbar onToggleMenu={handleToggleMenu}/>
+            <SideMenu isOpen={isMenuOpen}/>
+            <div className="main-content">
+              <Routes>
+                <Route path="/dashboard" element={<DashBoard />} />
+                <Route path="/users" element={<User />} />
+                <Route path="/users/:id" element={<UserDetails />} />
+                <Route path="/" element={<DashBoard />} />
+              </Routes>
+            </div>
+          </>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          </Routes>
+        )}
       </div>
-    </div>
-  </Router>
+    </Router>
   );
 };
 
 export default App;
-

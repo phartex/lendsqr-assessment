@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
-import { FaSearch, FaBell } from 'react-icons/fa';
+import { FaSearch, FaBell, FaBars } from 'react-icons/fa';
 
-const Navbar = () => {
+interface NavbarProps {
+  onToggleMenu: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onToggleMenu }) => {
   const handleLogoClick = () => {
     localStorage.clear();
     window.location.href = '/';
@@ -12,6 +16,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
+        <button className="menu-toggle-button" onClick={onToggleMenu}>
+          <FaBars />
+        </button>
         <Link to="/" className="logo-link" onClick={handleLogoClick}>
           <img src="/assets/lendsqr-logo.png" alt="Logo" className="logo" />
         </Link>
