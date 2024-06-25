@@ -7,9 +7,10 @@
   overflow-y: auto;
   box-shadow: -5px 0 20px -5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
-  padding-top: 3.5em;
+  padding-top: 1.5em;
+  margin-top: 2em;
   transition: left 0.3s;
-  left: -200px; 
+  // left: -200px; 
   border-right: 1px solid #e5e5e5;
   z-index: 1000;
   &.open {
@@ -42,7 +43,10 @@
   }
 
   @media (max-width: 768px) {
-    
+    .side-menu{
+      padding-top: 1.5em;
+      margin-top: 2em;
+    }
     transform: translateX(-100%);
     &.open {
       transform: translateX(0);
